@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { LockScreen, Main } from "../components"
+import { LockScreen, Main } from "../../components"
 import { AnimatePresence, motion } from "framer-motion"
 
 export default function Home() {
