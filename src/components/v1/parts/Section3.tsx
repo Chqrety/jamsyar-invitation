@@ -6,16 +6,16 @@ import { motion } from "framer-motion"
 
 export default function Section3() {
   return (
-    <div className="relative flex flex-col bg-[#fdf2de] py-12">
+    <div className="relative flex flex-col bg-[#EEF3FF] py-12">
       <motion.div
         initial={{ scale: 0.8, opacity: 0 }}
         whileInView={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: true }}
         // viewport={{ amount: 0.2 }}
-        className="mb-10 flex justify-center text-[#a76226]"
+        className="flex justify-center mb-10 text-[#06205B]"
       >
-        <div className="relative flex w-[80%] flex-col gap-5 rounded-3xl bg-transparent px-5 py-10 text-center text-xs shadow-[0_4px_30px_rgba(0,0,0,0.5)]">
+        <div className="relative text-xs text-center flex flex-col gap-5 w-[80%] px-5 py-10 shadow-[0_4px_30px_rgba(0,0,0,0.5)] bg-transparent rounded-3xl">
           <Image
             className="absolute top-0 left-0 z-10 opacity-30"
             src="/assets/card-top.png"
@@ -41,7 +41,7 @@ export default function Section3() {
             kepadamu, supaya kamu bersyukur."
           </p>
           <Image
-            className="absolute right-0 bottom-0 z-10 opacity-30"
+            className="absolute bottom-0 right-0 z-10 opacity-30"
             src="/assets/corner-card.png"
             width={200}
             height={200}

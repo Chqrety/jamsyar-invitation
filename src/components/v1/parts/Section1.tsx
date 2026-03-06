@@ -3,23 +3,16 @@ import Image from "next/image"
 
 export default function Section1() {
   return (
-    <div className="relative min-h-dvh pt-48">
+    <div className="relative pt-48 min-h-dvh">
       <Image
-        src="/assets/border-top.png"
+        className="absolute lg:hidden top-0 left-0"
+        src="/assets/top-section-1.png"
         width={500}
         height={500}
         alt="top"
-        className="absolute top-0 left-0 lg:hidden"
       />
-      <Image
-        src="/assets/moon.png"
-        width={200}
-        height={200}
-        alt="moon"
-        className="absolute top-0 left-1/2 -translate-x-1/2 lg:hidden"
-      />
-      <div className="mb-10 flex justify-center">
-        <div className="flex w-[80%] flex-col gap-10 rounded-3xl bg-transparent px-5 py-10 text-center text-xs shadow-[0_4px_30px_rgba(0,0,0,0.5)]">
+      <div className="flex justify-center mb-10">
+        <div className="text-xs text-center flex flex-col gap-10 w-[80%] px-5 py-10 shadow-[0_4px_30px_rgba(0,0,0,0.5)] bg-transparent rounded-3xl">
           <p className={`${playball.className} w-full text-lg`}>
             Assalamu'alaikum Warahmatullahi
             <br />
@@ -35,12 +28,12 @@ export default function Section1() {
             dengan hormat mengundang Bapak/Ibu/Saudara/i untuk hadir dalam acara
           </p>
           <div
-            className={`${berkshire.className} flex flex-col gap-1 text-center text-[#a76226]`}
+            className={`${berkshire.className} flex flex-col text-center gap-1 text-[#FFE5AA]`}
           >
-            <div className="text-2xl drop-shadow-[0_0_10px_rgba(167,98,38,0.5)] md:text-3xl lg:text-5xl xl:text-7xl">
+            <div className="text-2xl md:text-3xl lg:text-5xl xl:text-7xl drop-shadow-[0_0_10px_rgba(255,229,170,0.8)]">
               <p>Nuzulul Qur'an &</p>
             </div>
-            <div className="text-xl drop-shadow-[0_0_10px_rgba(167,98,38,0.5)]">
+            <div className="text-xl drop-shadow-[0_0_10px_rgba(255,229,170,0.8)]">
               <p>Buka Bersama</p>
             </div>
           </div>
@@ -48,8 +41,8 @@ export default function Section1() {
         </div>
       </div>
       <Image
-        className="block opacity-30 lg:hidden"
-        src="/assets/masjid-1.png"
+        className="block lg:hidden"
+        src="/assets/masjid.png"
         width={500}
         height={500}
         alt="masjid"

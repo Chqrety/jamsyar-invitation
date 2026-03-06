@@ -1,12 +1,5 @@
 import { Berkshire_Swash, Poppins, Playball } from 'next/font/google'
-import localFont from 'next/font/local'
 
 export const poppins = Poppins({ subsets: ['latin'], weight: '400' })
 export const berkshire = Berkshire_Swash({ subsets: ['latin'], weight: '400' })
 export const playball = Playball({ subsets: ['latin'], weight: '400' })
-
-export const ruhia = localFont({
-  src: '../../public/fonts/ruhia-arabic.woff2', // Sesuaikan dengan path file Anda
-  display: 'swap',
-  variable: '--font-ruhia', // Opsional: jika ingin menggunakan CSS Variable
-})

@@ -13,17 +13,10 @@ export default function Section2() {
         className="absolute top-0 left-0 lg:hidden"
       >
         <Image
-          src="/assets/border-top.png"
+          src="/assets/top-section-2.svg"
           width={500}
           height={500}
-          alt="border-top"
-        />
-        <Image
-          src="/assets/moon.png"
-          width={200}
-          height={200}
-          alt="moon"
-          className="absolute top-0 left-1/2 -translate-x-1/2 lg:hidden"
+          alt="topsection2"
         />
       </motion.div>
       <motion.div
@@ -31,26 +24,25 @@ export default function Section2() {
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: true }}
-        className="mb-10 flex justify-center"
+        className="flex justify-center mb-10"
       >
-        <div className="flex w-[80%] flex-col gap-5 rounded-3xl bg-transparent px-5 py-10 text-center text-xs shadow-[0_4px_30px_rgba(0,0,0,0.5)]">
+        <div className="text-xs text-center flex flex-col gap-5 w-[80%] px-5 py-10 shadow-[0_4px_30px_rgba(0,0,0,0.5)] bg-transparent rounded-3xl">
           <p className="w-full text-xl">Save the Date</p>
           <div>
-            <p className="text-xl">Senin, 12 Maret 2026</p>
+            <p className="text-xl">Senin, 17 Maret 2025</p>
             <p className={`${playball.className} text-2xl`}>
-              22 Ramadhan 1447 H
+              17 Ramadhan 1446 H
             </p>
           </div>
           <div className="flex flex-col gap-1">
             <p className={`${playball.className} text-sm`}>
-              15.30 WIB - selesai
+              16.00 WIB - selesai
             </p>
             <p className="text-xs">
-              Aula Serba Guna Lantai 7, Gedung Kantor Pusat PT. Penjaminan
-              Jamkrindo Syariah
+              Lantai 7, PT. Penjaminan Jamkrindo Syariah
             </p>
-            <p className="text-xs font-semibold italic">
-              Dresscode: Atasan Putih Muslim
+            <p className="text-xs italic font-semibold">
+              Dresscode: Baju Muslim Putih
             </p>
           </div>
           <p>
@@ -79,21 +71,7 @@ export default function Section2() {
           src="/assets/bottom-section-2.svg"
           width={500}
           height={500}
-          alt="masjid"
-        />
-        <Image
-          src="/assets/leaf-l.png"
-          width={100}
-          height={100}
-          alt="leaf"
-          className="absolute bottom-0 left-0 translate-x-0"
-        />
-        <Image
-          src="/assets/leaf-r.png"
-          width={100}
-          height={100}
-          alt="leaf"
-          className="absolute right-0 bottom-0 translate-x-0"
+          alt="bottomsection"
         />
       </motion.div>
     </div>

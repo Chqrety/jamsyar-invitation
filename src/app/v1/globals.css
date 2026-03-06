@@ -5,13 +5,13 @@
 @plugin "daisyui/theme" {
   name: "light";
   default: true;
-  --color-primary: #a76226;
+  --color-primary: #06205b;
   --color-secondary: #497d74;
 }
 
 :root {
-  --background: #fdf2de;
-  --foreground: #a76226;
+  --background: #06205b;
+  --foreground: #efe9d5;
 }
 
 body {

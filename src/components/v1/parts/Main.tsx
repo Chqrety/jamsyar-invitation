@@ -33,12 +33,12 @@ export default function Main({ isUnlocked }: { isUnlocked: boolean }) {
   }
   return (
     <>
-      <div className="fixed right-3 bottom-5 z-20 flex transform items-center gap-2 rounded-full bg-white/20 px-5 py-3 backdrop-blur-md">
+      <div className="fixed z-20 flex items-center gap-2 px-5 py-3 transform rounded-full bottom-5 right-3 bg-white/20 backdrop-blur-md">
         <button onClick={togglePlayPause} className="text-lg text-white">
           {isPlaying ? "⏸" : "▶"}
         </button>
       </div>
-      <div className="bg-[#fdf2de]">
+      <div className="bg-[#06205B]">
         <Section1 />
         <Section2 />
       </div>

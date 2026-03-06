@@ -1,6 +1,7 @@
 import { Berkshire_Swash } from "next/font/google"
-import { ruhia } from "../../app/fonts"
 import Image from "next/image"
+
+const berkshire = Berkshire_Swash({ subsets: ["latin"], weight: "400" })
 
 interface LockScreenProps {
   onUnlock: () => void
@@ -16,17 +17,9 @@ export default function LockScreen({
   loading,
 }: LockScreenProps) {
   return (
-    <div className="relative h-dvh xl:pt-64">
+    <div className="relative h-dvh pt-24 xl:pt-64">
       <div className="absolute top-0 flex">
         <Image
-          src="/assets/border-top.png"
-          width={700}
-          height={700}
-          alt="lantern"
-          priority
-        />
-        <Image
-          className="hidden md:block"
           src="/assets/lantern.png"
           width={700}
           height={700}
@@ -39,19 +32,24 @@ export default function LockScreen({
           height={700}
           alt="lantern"
         />
-      </div>
-      <div className="flex justify-center">
-        <Image src="/assets/moon.png" width={220} height={220} alt="moon" />
+        <Image
+          className="hidden md:block"
+          src="/assets/lantern.png"
+          width={700}
+          height={700}
+          alt="lantern"
+        />
       </div>
       <div className="flex flex-col gap-8">
         <div className="flex justify-center">
           <div
-            className={`${ruhia.className} flex flex-col gap-1 text-center text-[#a76226]`}
+            className={`${berkshire.className} flex flex-col gap-1 text-center text-[#FFE5AA]`}
           >
-            <div className="text-4xl drop-shadow-[0_0_10px_rgba(167,98,38,0.5)] md:text-3xl lg:text-5xl xl:text-7xl">
-              <p>Nuzulul Qur'an</p>
+            <div className="text-5xl drop-shadow-[0_0_10px_rgba(255,229,170,0.8)] md:text-3xl lg:text-5xl xl:text-7xl">
+              <p>Nuzulul</p>
+              <p>Qur'an</p>
             </div>
-            <div className="text-xl drop-shadow-[0_0_10px_rgba(167,98,38,0.5)]">
+            <div className="text-3xl drop-shadow-[0_0_10px_rgba(255,229,170,0.8)]">
               <p>dan</p>
               <p>Buka Bersama</p>
             </div>
@@ -63,8 +61,8 @@ export default function LockScreen({
               <p className="text-lg font-bold xl:text-xl">
                 PT. JAMKRINDO SYARIAH
               </p>
-              <p className="text-xs xl:text-base">12 MARET 2026/</p>
-              <p className="text-xs xl:text-base">22 RAMADHAN 1447 H</p>
+              <p className="text-xs xl:text-base">17 MARET 2025/</p>
+              <p className="text-xs xl:text-base">17 RAMADHAN 1446 H</p>
             </div>
             <div className="w-full text-center text-xs xl:w-1/6 xl:text-base">
               <p>
@@ -74,21 +72,12 @@ export default function LockScreen({
               </p>
               <p className="text-center">(QS 97: 1-3)</p>
             </div>
-            <div className="w-full text-center text-xs italic xl:w-1/6 xl:text-base">
-              <p>
-                Bersama:
-                <br />
-                <span className="text-sm font-semibold not-italic">
-                  KH. Muhammad Cholil Nafis, Lc., M.A., Ph.D.
-                </span>
-              </p>
-            </div>
           </div>
         </div>
-        {/* <div className="absolute z-10 flex justify-center -translate-x-1/2 bottom-52 left-1/2">
+        <div className="absolute bottom-52 left-1/2 z-10 flex -translate-x-1/2 justify-center">
           <Image src="/assets/quran.png" width={200} height={200} alt="quran" />
-        </div> */}
-        <div className="absolute bottom-32 left-1/2 z-20 -translate-x-1/2 text-center text-[#a76226] lg:text-[#a76226]">
+        </div>
+        <div className="absolute bottom-32 left-1/2 z-20 -translate-x-1/2 text-center text-[#06205B] lg:text-[#efe9d5]">
           <p className="text-xs font-semibold">Kepada Yth:</p>
           {loading ? (
             <span className="loading loading-dots loading-sm"></span>
@@ -104,37 +93,67 @@ export default function LockScreen({
         <div className="mt-18 flex justify-center">
           <button
             onClick={onUnlock}
-            className="absolute bottom-16 z-20 flex gap-2 rounded-3xl bg-[#a76226] px-5 py-2 text-[#fdf2de] hover:cursor-pointer lg:bg-teal-800"
+            className="absolute bottom-16 z-20 flex gap-2 rounded-3xl bg-[#06205B] px-5 py-2 hover:cursor-pointer lg:bg-teal-800"
           >
-            <Image
-              src="/v1/assets/mail.svg"
-              width={20}
-              height={20}
-              alt="mail"
-            />
+            <Image src="/assets/mail.svg" width={20} height={20} alt="mail" />
             BUKA UNDANGAN
           </button>
         </div>
         <Image
-          src="/assets/masjid.png"
-          width={1080}
-          height={1080}
-          alt="quran"
-          className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-0 opacity-10"
+          className="absolute bottom-28 left-0 xl:bottom-0"
+          src="/assets/cloud1-back.png"
+          width={300}
+          height={300}
+          alt="cloud"
         />
         <Image
-          src="/assets/leaf-l.png"
-          width={100}
-          height={100}
-          alt="leaf"
-          className="absolute bottom-0 left-0 translate-x-0"
+          className="absolute right-0 bottom-28 xl:bottom-0"
+          src="/assets/cloud4-back.png"
+          width={300}
+          height={300}
+          alt="cloud"
         />
         <Image
-          src="/assets/leaf-r.png"
-          width={100}
-          height={100}
-          alt="leaf"
-          className="absolute right-0 bottom-0 translate-x-0"
+          className="absolute bottom-24 left-0 z-10 xl:bottom-0"
+          src="/assets/cloud1-top.png"
+          width={300}
+          height={300}
+          alt="cloud"
+        />
+        <Image
+          className="absolute right-0 bottom-24 z-10 xl:bottom-0"
+          src="/assets/cloud4-top.png"
+          width={300}
+          height={300}
+          alt="cloud"
+        />
+        <Image
+          className="absolute bottom-12 left-0 z-10 xl:bottom-0"
+          src="/assets/cloud1-mid.png"
+          width={300}
+          height={300}
+          alt="cloud"
+        />
+        <Image
+          className="absolute right-0 bottom-12 z-10 xl:bottom-0"
+          src="/assets/cloud4-mid.png"
+          width={300}
+          height={300}
+          alt="cloud"
+        />
+        <Image
+          className="absolute right-0 bottom-0 z-10 xl:bottom-0"
+          src="/assets/cloud2-down.png"
+          width={300}
+          height={300}
+          alt="cloud"
+        />
+        <Image
+          className="absolute bottom-0 left-0 z-10 xl:bottom-0"
+          src="/assets/cloud3-down.png"
+          width={300}
+          height={300}
+          alt="cloud"
         />
       </div>
     </div>
