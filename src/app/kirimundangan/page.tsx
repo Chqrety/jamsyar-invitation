@@ -29,7 +29,7 @@ PT. Penjaminan Jamkrindo Syariah`
 
 const cleanedMessage = defaultMessage
   .split("\n")
-  .map((line) => line.trimStart()) // Menghapus spasi di awal tiap baris
+  .map(line => line.trimStart()) // Menghapus spasi di awal tiap baris
   .join("\n")
 
 export default function Page() {
@@ -47,12 +47,12 @@ export default function Page() {
       toast.warning("Nama tamu tidak boleh kosong!")
       return
     }
-    const rows = input.split("\n").map((line) => {
-      const [name, position] = line.split("-").map((s) => s.trim())
+    const rows = input.split("\n").map(line => {
+      const [name, position] = line.split("-").map(s => s.trim())
       return { name, position }
     })
 
-    const { error } = await supabase.from("visitors").insert(rows)
+    const { error } = await supabase.from("visitors_jsr").insert(rows)
     if (error) toast.error("Gagal menyimpan")
     else {
       toast.success("Berhasil disimpan!")
@@ -64,7 +64,7 @@ export default function Page() {
   const fetchVisitors = async () => {
     setLoading(true)
     const { data, error } = await supabase
-      .from("visitors")
+      .from("visitors_jsr")
       .select("id, name, position, presence")
       .order("name", { ascending: true })
     if (error) {
@@ -128,7 +128,7 @@ export default function Page() {
 
   const handleDelete = async (id: number) => {
     const loadingToast = toast.info("Menghapus data...")
-    const { error } = await supabase.from("visitors").delete().eq("id", id)
+    const { error } = await supabase.from("visitors_jsr").delete().eq("id", id)
 
     if (error) {
       toast.update(loadingToast, {
@@ -147,26 +147,26 @@ export default function Page() {
   }
 
   useEffect(() => {
-    fetchVisitors(),
+    ;(fetchVisitors(),
       fetch("/api/visitors")
-        .then((res) => res.json())
-        .then((data) => {
+        .then(res => res.json())
+        .then(data => {
           setVisitors(data)
           setLoading(false)
         })
-        .catch(() => setLoading(false))
+        .catch(() => setLoading(false)))
   }, [])
 
   return (
     <main className="min-h-screen bg-white text-black">
-      <div className="flex flex-col mt-10 mb-8 px-10">
-        <p className="text-3xl font-bold text-center">
+      <div className="mt-10 mb-8 flex flex-col px-10">
+        <p className="text-center text-3xl font-bold">
           Kirim Undangan Untuk Para Tamu
         </p>
       </div>
 
       <div className="flex justify-center">
-        <div className="flex flex-col px-10 mb-8 gap-1">
+        <div className="mb-8 flex flex-col gap-1 px-10">
           <p className="mb-3">Petunjuk:</p>
           <div className="flex flex-col gap-2">
             <ItemInstruksi text="Masukkan nama tamu undangan pada kolom nama-jabatan. Pisahkan antar nama dengan baris baru (enter)." />
@@ -181,16 +181,16 @@ export default function Page() {
         </div>
       </div>
 
-      <div className="flex justify-center px-8 mb-5">
-        <p className="w-full font-semibold text-sm text-center">
+      <div className="mb-5 flex justify-center px-8">
+        <p className="w-full text-center text-sm font-semibold">
           Buat undangan jadi lebih ekslusif dan personal di setiap undangan yang
           akan dikirimkan. <br />
           Silahkan Generate Link nya di bawah ini:
         </p>
       </div>
 
-      <div className="flex justify-center mb-10">
-        <div className="text-xs md:text-base flex flex-col gap-3 w-[80%] md:w-fit px-5 py-2 border border-gray-300 rounded-2xl xl:min-w-4xl">
+      <div className="mb-10 flex justify-center">
+        <div className="flex w-[80%] flex-col gap-3 rounded-2xl border border-gray-300 px-5 py-2 text-xs md:w-fit md:text-base xl:min-w-4xl">
           <p>Silahkan Masukkan Nama Tamu</p>
           <div className="italic">
             <p>
@@ -199,7 +199,7 @@ export default function Page() {
             </p>
             <p>* Gunakan strip (-) untuk memisahkan nama dengan jabatan.</p>
           </div>
-          <div className="italic text-red-600 flex gap-1">
+          <div className="flex gap-1 text-red-600 italic">
             <p>contoh: </p>
             <div className="flex flex-col">
               <p>Agus Sucipto-Staff</p>
@@ -212,7 +212,7 @@ export default function Page() {
             className="textarea"
             placeholder="Nama-Jabatan"
             value={input}
-            onChange={(e) => setInput(e.target.value)}
+            onChange={e => setInput(e.target.value)}
           />
           <p>Silahkan Masukan Text Pengantar</p>
           <div className="italic">
@@ -223,26 +223,26 @@ export default function Page() {
             rows={6}
             className="textarea whitespace-pre-wrap"
             value={text}
-            onChange={(e) => setText(e.target.value)}
+            onChange={e => setText(e.target.value)}
             placeholder="kata pengantar"
           />
 
           <button
             onClick={handleSubmit}
-            className="btn bg-green-500 w-fit px-10"
+            className="btn w-fit bg-green-500 px-10"
           >
             <p>Buat Undangan</p>
           </button>
         </div>
       </div>
 
-      <div className="flex justify-center mb-10">
-        <div className="text-xs md:text-base flex flex-col gap-2 w-[80%] md:w-fit xl:min-w-4xl px-5 py-7 border border-gray-300 rounded-2xl">
+      <div className="mb-10 flex justify-center">
+        <div className="flex w-[80%] flex-col gap-2 rounded-2xl border border-gray-300 px-5 py-7 text-xs md:w-fit md:text-base xl:min-w-4xl">
           <p className="font-bold">Daftar Nama Undangan</p>
           <div className="flex justify-end gap-1">
             <Modal />
             <button
-              className="btn bg-blue-500 text-white rounded-4xl lg:rounded-[5px]"
+              className="btn rounded-4xl bg-blue-500 text-white lg:rounded-[5px]"
               onClick={fetchVisitors}
             >
               {loading ? (
@@ -285,17 +285,17 @@ export default function Page() {
                         visitor.presence === "Hadir"
                           ? "bg-green-100"
                           : visitor.presence === "Tidak Hadir"
-                          ? "bg-red-100"
-                          : ""
+                            ? "bg-red-100"
+                            : ""
                       }
                     >
                       <th>{index + 1}</th>
                       <td>{visitor.name}</td>
                       <td>{visitor.position}</td>
-                      <td className="flex gap-2 flex-wrap w-[240px] lg:w-full">
+                      <td className="flex w-[240px] flex-wrap gap-2 lg:w-full">
                         <button
                           onClick={() => handleWhatsAppShare(visitor)}
-                          className="btn flex items-center btn-sm col-span-1 bg-green-500 text-white rounded-4xl lg:rounded-[5px]"
+                          className="btn btn-sm col-span-1 flex items-center rounded-4xl bg-green-500 text-white lg:rounded-[5px]"
                         >
                           <Image
                             src="/assets/whatsapp.svg"
@@ -308,7 +308,7 @@ export default function Page() {
 
                         <button
                           onClick={() => handleCopyLink(visitor.name)}
-                          className="btn flex items-center btn-sm col-span-1 bg-slate-900 text-white rounded-4xl lg:rounded-[5px]"
+                          className="btn btn-sm col-span-1 flex items-center rounded-4xl bg-slate-900 text-white lg:rounded-[5px]"
                         >
                           <Image
                             src="/assets/link.svg"
@@ -321,7 +321,7 @@ export default function Page() {
 
                         <button
                           onClick={() => copyToClipboard(visitor.name)}
-                          className="btn flex items-center btn-sm col-span-1 bg-gray-500 text-white rounded-4xl lg:rounded-[5px]"
+                          className="btn btn-sm col-span-1 flex items-center rounded-4xl bg-gray-500 text-white lg:rounded-[5px]"
                         >
                           <Image
                             src="/assets/copy.svg"
@@ -334,7 +334,7 @@ export default function Page() {
 
                         <button
                           onClick={() => handleDelete(visitor.id)}
-                          className="btn flex items-center btn-sm col-span-1 bg-red-600 text-white rounded-4xl lg:rounded-[5px]"
+                          className="btn btn-sm col-span-1 flex items-center rounded-4xl bg-red-600 text-white lg:rounded-[5px]"
                         >
                           <Image
                             src="/assets/delete.svg"

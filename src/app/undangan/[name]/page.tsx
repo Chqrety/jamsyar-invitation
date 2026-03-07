@@ -27,13 +27,11 @@ const Page = () => {
       let formattedName = params.name
         .replace(/-/g, " ") // Ganti "-" dengan spasi
         .split(" ") // Pisah berdasarkan spasi
-        .map(
-          (word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase(),
-        ) // Title Case
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()) // Title Case
         .join(" ")
 
       const { data, error } = await supabase
-        .from("visitors")
+        .from("visitors_jsr")
         .select("id, name, position, presence")
         .eq("name", formattedName)
         .maybeSingle()
