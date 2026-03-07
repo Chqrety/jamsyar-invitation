@@ -85,31 +85,36 @@ export default function Section2() {
 
         {/* Ornamen Bawah (Masjid & Daun) */}
         <motion.div
-          initial={{ y: 100, opacity: 0 }}
+          initial={{ y: 50, opacity: 0 }} // y dikurangi sedikit agar animasinya mulus masuk ke dalam layar
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true }}
+          // 1. Tambahkan positioning agar wadahnya jelas berada di paling bawah
+          className="absolute bottom-0 left-0 z-0 w-full"
         >
+          {/* 2. Gambar utama ini JANGAN absolute, agar motion.div punya tinggi asli */}
           <Image
-            className="absolute bottom-0 left-0 translate-x-0"
+            className="h-auto w-full object-cover"
             src="/assets/bottom-section-2.webp"
             width={500}
             height={500}
             alt="masjid"
           />
+
+          {/* 3. Daun tetap absolute agar menempel di pojokan gambar utama */}
           <Image
             src="/assets/leaf-l.webp"
             width={100}
             height={100}
             alt="leaf"
-            className="absolute bottom-0 left-0 translate-x-0"
+            className="absolute bottom-0 left-0 w-1/4"
           />
           <Image
             src="/assets/leaf-r.webp"
             width={100}
             height={100}
             alt="leaf"
-            className="absolute right-0 bottom-0 translate-x-0"
+            className="absolute right-0 bottom-0 w-1/4"
           />
         </motion.div>
       </div>
