@@ -23,7 +23,7 @@ export default function LockScreen({
     shadow-2xl: Memberi bayangan agar terpisah dari background luar
     overflow-hidden: Memastikan elemen daun/masjid tidak bocor ke luar kotak
   */}
-      <div className="relative h-screen w-full max-w-[430px] overflow-hidden bg-[#fdf2de] shadow-2xl">
+      <div className="relative h-dvh w-full max-w-[430px] overflow-hidden bg-[#fdf2de] shadow-2xl">
         {/* HEADER BAWAH BORDER */}
         <div className="absolute top-0 z-10 flex w-full flex-col">
           <div className="flex w-full items-center justify-between bg-white px-2 py-1">
