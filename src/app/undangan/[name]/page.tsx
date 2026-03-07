@@ -30,22 +30,13 @@ const Page = () => {
         .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()) // Title Case
         .join(" ")
 
-      // LOG 1: Cek nama yang dikirim ke Supabase (Berguna untuk debug jika data null)
-      console.log("🔍 Mencari visitor dengan nama:", formattedName)
-
       const { data, error } = await supabase
         .from("visitors_jsr")
         .select("id, name, position, presence")
         .ilike("name", formattedName)
         .maybeSingle()
 
-      if (error) {
-        console.error("❌ Error fetching visitor:", error)
-      } else {
-        // LOG 2: Cek data hasil balikan dari Supabase
-        console.log("✅ Data visitor ditemukan:", data)
-      }
-
+      if (error) console.error("Error fetching visitor:", error)
       setVisitor(data)
       setLoading(false)
     }
