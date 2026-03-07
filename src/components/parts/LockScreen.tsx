@@ -17,7 +17,41 @@ export default function LockScreen({
 }: LockScreenProps) {
   return (
     <div className="relative h-dvh xl:pt-64">
-      <div className="absolute top-0 flex">
+      <div className="absolute top-0 flex flex-col">
+        <div className="flex w-full items-center justify-between bg-white px-2 py-1">
+          {/* Container untuk Logo 1 */}
+          <div className="flex h-7 w-1/3 items-center justify-start">
+            <Image
+              src="/assets/danantara.png"
+              width={100} // Beri width proporsional yang cukup besar
+              height={40} // Height sesuai container h-7 (40px)
+              alt="danantara"
+              className="h-full w-auto object-contain" // h-full memaksa gambar isi tinggi container
+            />
+          </div>
+
+          {/* Container untuk Logo 2 */}
+          <div className="flex h-7 w-1/3 items-center justify-center">
+            <Image
+              src="/assets/gerak.png"
+              width={100}
+              height={40}
+              alt="gerak"
+              className="h-full w-auto object-contain"
+            />
+          </div>
+
+          {/* Container untuk Logo 3 */}
+          <div className="flex h-7 w-1/3 items-center justify-end">
+            <Image
+              src="/assets/jamsyar.png"
+              width={100}
+              height={40}
+              alt="jamsyar"
+              className="h-full w-auto object-contain"
+            />
+          </div>
+        </div>
         <Image
           src="/assets/border-top.png"
           width={700}
@@ -25,22 +59,8 @@ export default function LockScreen({
           alt="lantern"
           priority
         />
-        <Image
-          className="hidden md:block"
-          src="/assets/lantern.png"
-          width={700}
-          height={700}
-          alt="lantern"
-        />
-        <Image
-          className="hidden md:block"
-          src="/assets/lantern.png"
-          width={700}
-          height={700}
-          alt="lantern"
-        />
       </div>
-      <div className="flex justify-center">
+      <div className="flex justify-center pt-10">
         <Image src="/assets/moon.png" width={220} height={220} alt="moon" />
       </div>
       <div className="flex flex-col gap-8">
@@ -115,27 +135,103 @@ export default function LockScreen({
             BUKA UNDANGAN
           </button>
         </div>
-        <Image
-          src="/assets/masjid.png"
-          width={1080}
-          height={1080}
-          alt="quran"
-          className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-0 opacity-10"
-        />
-        <Image
-          src="/assets/leaf-l.png"
-          width={100}
-          height={100}
-          alt="leaf"
-          className="absolute bottom-0 left-0 translate-x-0"
-        />
-        <Image
-          src="/assets/leaf-r.png"
-          width={100}
-          height={100}
-          alt="leaf"
-          className="absolute right-0 bottom-0 translate-x-0"
-        />
+        <div className="absolute bottom-0 w-full">
+          {/* Kontainer Relatif untuk Masjid dan Daun */}
+          <div className="relative w-full">
+            <Image
+              src="/assets/masjid.png"
+              width={1080}
+              height={1080}
+              alt="quran"
+              className="w-full opacity-10"
+            />
+
+            {/* Daun Kiri - Sekarang nempel ke bawah gambar masjid */}
+            <Image
+              src="/assets/leaf-l.png"
+              width={100}
+              height={100}
+              alt="leaf"
+              className="absolute bottom-0 left-0 w-1/4 md:w-[100px]"
+            />
+
+            {/* Daun Kanan - Sekarang nempel ke bawah gambar masjid */}
+            <Image
+              src="/assets/leaf-r.png"
+              width={100}
+              height={100}
+              alt="leaf"
+              className="absolute right-0 bottom-0 w-1/4 md:w-[100px]"
+            />
+          </div>
+
+          {/* Row Logo di paling bawah */}
+          <div className="flex w-full items-center justify-between bg-white px-2 py-1">
+            {/* kiri */}
+            <div className="flex items-center gap-2">
+              <div>
+                <div className="flex items-center gap-1">
+                  <div className="flex items-center justify-center">
+                    <Image
+                      src="/assets/facebook.svg"
+                      width={40}
+                      height={40}
+                      alt="facebook"
+                      className="h-full w-4 rounded-full object-contain"
+                    />
+                  </div>
+                  <div className="flex items-center justify-center">
+                    <Image
+                      src="/assets/youtube.svg"
+                      width={40}
+                      height={40}
+                      alt="youtube"
+                      className="h-full w-4 rounded-full object-contain"
+                    />
+                  </div>
+                  <div className="flex items-center justify-center">
+                    <Image
+                      src="/assets/linkedin.svg"
+                      width={40}
+                      height={40}
+                      alt="linkedin"
+                      className="h-full w-4 rounded-full object-contain"
+                    />
+                  </div>
+                  <div className="flex items-center justify-center">
+                    <Image
+                      src="/assets/instagram.svg"
+                      width={40}
+                      height={40}
+                      alt="instagram"
+                      className="h-full w-4 rounded-full object-contain"
+                    />
+                  </div>
+                  <p className="text-[0.5rem] text-black">
+                    | Jamkrindo Syariah
+                  </p>
+                </div>
+                <p className="text-[0.7rem] font-bold text-blue-900">
+                  www.jamkrindosyariah.co.id
+                </p>
+              </div>
+              <div className="w-7">
+                <Image
+                  src="/assets/ethos.png"
+                  width={40}
+                  height={40}
+                  alt="ethos"
+                />
+              </div>
+            </div>
+
+            {/* kanan */}
+            <p className="w-5/12 text-right text-[0.5rem] font-semibold text-blue-900">
+              PT Jamkrindo Syariah berizin dan diawasi oleh Otoritas Jasa
+              Keuangan (OJK)
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   )
