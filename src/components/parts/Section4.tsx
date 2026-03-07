@@ -13,7 +13,7 @@ export default function Section4() {
       return toast.warning("Harap lengkapi form!")
 
     const { error } = await supabase
-      .from("visitors")
+      .from("visitors_jsr")
       .update({
         presence,
       })
