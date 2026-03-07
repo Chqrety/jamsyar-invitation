@@ -23,7 +23,7 @@ export default function LockScreen({
     shadow-2xl: Memberi bayangan agar terpisah dari background luar
     overflow-hidden: Memastikan elemen daun/masjid tidak bocor ke luar kotak
   */}
-      <div className="relative h-dvh w-full max-w-[430px] overflow-hidden bg-[#fdf2de] shadow-2xl">
+      <div className="relative h-screen w-full max-w-[430px] overflow-hidden bg-[#fdf2de] shadow-2xl">
         {/* HEADER BAWAH BORDER */}
         <div className="absolute top-0 z-10 flex w-full flex-col">
           <div className="flex w-full items-center justify-between bg-white px-2 py-1">
@@ -103,18 +103,16 @@ export default function LockScreen({
                 </div>
                 <div className="w-full text-center text-xs">
                   <p>
-                    “Indeed, We sent the Qur'an down during the Night of Decree.
-                    And what can make you know what is the Night of Decree? The
-                    Night of Decree is better than a thousand months.”
+                    “Reshaping for Taqwa: Transforming Our Soul, Driving Our
+                    Excellence”
                   </p>
-                  <p className="mt-1 font-medium">(QS 97: 1-3)</p>
                 </div>
                 <div className="w-full text-center text-xs italic">
                   <p>
                     Bersama:
                     <br />
                     <span className="text-sm font-semibold not-italic">
-                      KH. Muhammad Cholil Nafis, Lc., M.A., Ph.D.
+                      Ustadz KH. Muhammad Cholil Nafis, Lc., M.A., Ph.D.
                     </span>
                   </p>
                 </div>

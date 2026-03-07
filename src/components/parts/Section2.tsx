@@ -54,10 +54,12 @@ export default function Section2() {
                 15.30 WIB - selesai
               </p>
               <p className="text-xs">
-                Pelaksanaan Kantor Pusat dan KCK Aula lantai 7 &
+                Pelaksanaan Kantor Pusat dan KCK
+                <br />
+                Aula lantai 7
               </p>
-              <p className="text-xs">
-                Pelaksanaan Cabang <br /> (Zoom dengan link terlampir)
+              <p className="pt-2 text-xs">
+                Pelaksanaan Cabang <br /> (Zoom terlampir)
               </p>
               <p className="mt-2 text-xs font-semibold text-[#a76226] italic">
                 Dresscode: Atasan Putih Muslim

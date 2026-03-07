@@ -9,7 +9,9 @@ export default function Main({ isUnlocked }: { isUnlocked: boolean }) {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      setAudio(new Audio("/assets/backsound-ramadhan.mp3"))
+      const newAudio = new Audio("/assets/backsound-ramadhan.mp3")
+      newAudio.volume = 0.5 // <-- Set volume di sini (Range: 0.0 sampai 1.0)
+      setAudio(newAudio)
     }
   }, [])
 

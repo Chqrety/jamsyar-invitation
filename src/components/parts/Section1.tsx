@@ -59,6 +59,11 @@ export default function Section1() {
             </div>
 
             <p className="leading-relaxed">
+              "Reshaping for Taqwa: Transforming Our Soul, Driving Our
+              Excellence"
+            </p>
+
+            <p className="leading-relaxed">
               yang insyaAllah akan diselenggarakan
             </p>
           </div>
