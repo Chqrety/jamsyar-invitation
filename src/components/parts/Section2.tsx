@@ -13,13 +13,13 @@ export default function Section2() {
         className="absolute top-0 left-0 lg:hidden"
       >
         <Image
-          src="/assets/border-top.png"
+          src="/assets/border-top.webp"
           width={500}
           height={500}
           alt="border-top"
         />
         <Image
-          src="/assets/moon.png"
+          src="/assets/moon.webp"
           width={200}
           height={200}
           alt="moon"
@@ -36,7 +36,7 @@ export default function Section2() {
         <div className="flex w-[80%] flex-col gap-5 rounded-3xl bg-transparent px-5 py-10 text-center text-xs shadow-[0_4px_30px_rgba(0,0,0,0.5)]">
           <p className="w-full text-xl">Save the Date</p>
           <div>
-            <p className="text-xl">Senin, 12 Maret 2026</p>
+            <p className="text-xl">Kamis, 12 Maret 2026</p>
             <p className={`${playball.className} text-2xl`}>
               22 Ramadhan 1447 H
             </p>
@@ -46,8 +46,10 @@ export default function Section2() {
               15.30 WIB - selesai
             </p>
             <p className="text-xs">
-              Aula Serba Guna Lantai 7, Gedung Kantor Pusat PT. Penjaminan
-              Jamkrindo Syariah
+              Pelaksanaan Kantor Pusat dan KCK Aula lantai 7 &
+            </p>
+            <p className="text-xs">
+              Pelaksanaan Cabang <br /> (Zoom dengan link terlampir)
             </p>
             <p className="text-xs font-semibold italic">
               Dresscode: Atasan Putih Muslim
@@ -76,20 +78,20 @@ export default function Section2() {
       >
         <Image
           className="block lg:hidden"
-          src="/assets/bottom-section-2.svg"
+          src="/assets/bottom-section-2.webp"
           width={500}
           height={500}
           alt="masjid"
         />
         <Image
-          src="/assets/leaf-l.png"
+          src="/assets/leaf-l.webp"
           width={100}
           height={100}
           alt="leaf"
           className="absolute bottom-0 left-0 translate-x-0"
         />
         <Image
-          src="/assets/leaf-r.png"
+          src="/assets/leaf-r.webp"
           width={100}
           height={100}
           alt="leaf"

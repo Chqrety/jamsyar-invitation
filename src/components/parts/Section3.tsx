@@ -18,7 +18,7 @@ export default function Section3() {
         <div className="relative flex w-[80%] flex-col gap-5 rounded-3xl bg-transparent px-5 py-10 text-center text-xs shadow-[0_4px_30px_rgba(0,0,0,0.5)]">
           <Image
             className="absolute top-0 left-0 z-10 opacity-30"
-            src="/assets/card-top.png"
+            src="/assets/card-top.webp"
             width={500}
             height={500}
             alt="cardtop"
@@ -42,7 +42,7 @@ export default function Section3() {
           </p>
           <Image
             className="absolute right-0 bottom-0 z-10 opacity-30"
-            src="/assets/corner-card.png"
+            src="/assets/corner-card.webp"
             width={200}
             height={200}
             alt="corner"

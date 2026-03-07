@@ -22,7 +22,7 @@ export default function LockScreen({
           {/* Container untuk Logo 1 */}
           <div className="flex h-7 w-1/3 items-center justify-start">
             <Image
-              src="/assets/danantara.png"
+              src="/assets/danantara.webp"
               width={100} // Beri width proporsional yang cukup besar
               height={40} // Height sesuai container h-7 (40px)
               alt="danantara"
@@ -33,7 +33,7 @@ export default function LockScreen({
           {/* Container untuk Logo 2 */}
           <div className="flex h-7 w-1/3 items-center justify-center">
             <Image
-              src="/assets/gerak.png"
+              src="/assets/gerak.webp"
               width={100}
               height={40}
               alt="gerak"
@@ -44,7 +44,7 @@ export default function LockScreen({
           {/* Container untuk Logo 3 */}
           <div className="flex h-7 w-1/3 items-center justify-end">
             <Image
-              src="/assets/jamsyar.png"
+              src="/assets/jamsyar.webp"
               width={100}
               height={40}
               alt="jamsyar"
@@ -53,7 +53,7 @@ export default function LockScreen({
           </div>
         </div>
         <Image
-          src="/assets/border-top.png"
+          src="/assets/border-top.webp"
           width={700}
           height={700}
           alt="lantern"
@@ -61,7 +61,7 @@ export default function LockScreen({
         />
       </div>
       <div className="flex justify-center pt-10">
-        <Image src="/assets/moon.png" width={220} height={220} alt="moon" />
+        <Image src="/assets/moon.webp" width={220} height={220} alt="moon" />
       </div>
       <div className="flex flex-col gap-8">
         <div className="flex justify-center">
@@ -106,9 +106,9 @@ export default function LockScreen({
           </div>
         </div>
         {/* <div className="absolute z-10 flex justify-center -translate-x-1/2 bottom-52 left-1/2">
-          <Image src="/assets/quran.png" width={200} height={200} alt="quran" />
+          <Image src="/assets/quran.webp" width={200} height={200} alt="quran" />
         </div> */}
-        <div className="absolute bottom-32 left-1/2 z-20 -translate-x-1/2 text-center text-[#a76226] lg:text-[#a76226]">
+        <div className="absolute bottom-28 left-1/2 z-20 -translate-x-1/2 text-center text-[#a76226] lg:text-[#a76226]">
           <p className="text-xs font-semibold">Kepada Yth:</p>
           {loading ? (
             <span className="loading loading-dots loading-sm"></span>
@@ -116,7 +116,7 @@ export default function LockScreen({
             <>
               <p className="text font-bold">{visitorName || "Guest"}</p>
               <p className="text-sm font-bold italic">
-                {visitorPosition || "No Posiitons"}
+                {visitorPosition || "No Positions"}
               </p>
             </>
           )}
@@ -124,7 +124,7 @@ export default function LockScreen({
         <div className="mt-18 flex justify-center">
           <button
             onClick={onUnlock}
-            className="absolute bottom-16 z-20 flex gap-2 rounded-3xl bg-[#a76226] px-5 py-2 text-[#fdf2de] hover:cursor-pointer lg:bg-teal-800"
+            className="absolute bottom-14 z-20 flex gap-2 rounded-3xl bg-[#a76226] px-5 py-2 text-[#fdf2de] hover:cursor-pointer lg:bg-teal-800"
           >
             <Image
               src="/v1/assets/mail.svg"
@@ -139,7 +139,7 @@ export default function LockScreen({
           {/* Kontainer Relatif untuk Masjid dan Daun */}
           <div className="relative w-full">
             <Image
-              src="/assets/masjid.png"
+              src="/assets/masjid.webp"
               width={1080}
               height={1080}
               alt="quran"
@@ -148,7 +148,7 @@ export default function LockScreen({
 
             {/* Daun Kiri - Sekarang nempel ke bawah gambar masjid */}
             <Image
-              src="/assets/leaf-l.png"
+              src="/assets/leaf-l.webp"
               width={100}
               height={100}
               alt="leaf"
@@ -157,7 +157,7 @@ export default function LockScreen({
 
             {/* Daun Kanan - Sekarang nempel ke bawah gambar masjid */}
             <Image
-              src="/assets/leaf-r.png"
+              src="/assets/leaf-r.webp"
               width={100}
               height={100}
               alt="leaf"
@@ -217,7 +217,7 @@ export default function LockScreen({
               </div>
               <div className="w-7">
                 <Image
-                  src="/assets/ethos.png"
+                  src="/assets/ethos.webp"
                   width={40}
                   height={40}
                   alt="ethos"

@@ -5,14 +5,14 @@ export default function Section1() {
   return (
     <div className="relative min-h-dvh pt-48">
       <Image
-        src="/assets/border-top.png"
+        src="/assets/border-top.webp"
         width={500}
         height={500}
         alt="top"
         className="absolute top-0 left-0 lg:hidden"
       />
       <Image
-        src="/assets/moon.png"
+        src="/assets/moon.webp"
         width={200}
         height={200}
         alt="moon"
@@ -49,7 +49,7 @@ export default function Section1() {
       </div>
       <Image
         className="block opacity-30 lg:hidden"
-        src="/assets/masjid-1.png"
+        src="/assets/masjid-1.webp"
         width={500}
         height={500}
         alt="masjid"
