@@ -85,7 +85,11 @@ export default function Page() {
     if (!name) return ""
 
     const mainLink = `${window.location.origin}/undangan`
-    const formattedName = name.toLowerCase().replace(/\s+/g, "-")
+
+    const formattedName = name
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/(^-|-$)/g, "")
 
     return `${mainLink}/${formattedName}`
   }

@@ -24,16 +24,12 @@ const Page = () => {
 
       setLoading(true)
 
-      let formattedName = params.name
-        .replace(/-/g, " ") // Ganti "-" dengan spasi
-        .split(" ") // Pisah berdasarkan spasi
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()) // Title Case
-        .join(" ")
+      const searchPattern = `%${params.name.split("-").join("%")}%`
 
       const { data, error } = await supabase
         .from("visitors_jsr")
         .select("id, name, position, presence")
-        .ilike("name", formattedName)
+        .ilike("name", searchPattern)
         .maybeSingle()
 
       if (error) console.error("Error fetching visitor:", error)
