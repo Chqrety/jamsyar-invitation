@@ -17,13 +17,13 @@ export default function Section4() {
     }
 
     // Cek apakah ini template jabatan (nama asli di DB kosong)
-    const isGenericLink = !visitor.name
+    const isGenericLink = !visitor.position
 
     if (isGenericLink) {
       const { error } = await supabase.from("visitors_jsr").insert([
         {
           name: name, // Nama dari inputan form
-          position: visitor.position, // Tetap bawa nama jabatannya
+          position: visitor.name, // Tetap bawa nama jabatannya
           presence: presence,
         },
       ])
