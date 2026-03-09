@@ -125,7 +125,7 @@ export default function LockScreen({
                 <div className="mt-0.5 leading-tight">
                   <p className="text-sm font-bold">{visitorName || "Guest"}</p>
                   <p className="text-xs font-bold italic">
-                    {visitorPosition || "No Positions"}
+                    {visitorPosition || (!visitorName ? "No Positions" : "")}
                   </p>
                 </div>
               )}

@@ -7,29 +7,55 @@ import { toast } from "react-toastify"
 export default function Section4() {
   const visitor = useVisitorStore(state => state.visitor)
   const [presence, setPresence] = useState("")
+  const [name, setName] = useState("")
 
   const handleSubmit = async () => {
-    if (!visitor?.name || !presence)
-      return toast.warning("Harap lengkapi form!")
+    if (!name || !presence) return toast.warning("Harap lengkapi form!")
 
-    const { error } = await supabase
-      .from("visitors_jsr")
-      .update({
-        presence,
-      })
-      .eq("name", visitor.name)
+    if (!visitor) {
+      return toast.error("Data tamu tidak valid!")
+    }
 
-    if (error) {
-      toast.error("Gagal update data")
+    // Cek apakah ini template jabatan (nama asli di DB kosong)
+    const isGenericLink = !visitor.name
+
+    if (isGenericLink) {
+      const { error } = await supabase.from("visitors_jsr").insert([
+        {
+          name: name, // Nama dari inputan form
+          position: visitor.position, // Tetap bawa nama jabatannya
+          presence: presence,
+        },
+      ])
+
+      if (error) {
+        console.error(error)
+        toast.error("Gagal menyimpan data baru")
+      } else {
+        toast.success("Data kehadiran berhasil dikirim!")
+      }
     } else {
-      toast.success("Data berhasil dikirim!")
+      const { error } = await supabase
+        .from("visitors_jsr")
+        .update({
+          name: name, // Berjaga-jaga jika tamu mengoreksi ejaan namanya
+          presence: presence,
+        })
+        .eq("id", visitor.id)
+
+      if (error) {
+        console.error(error)
+        toast.error("Gagal update data")
+      } else {
+        toast.success("Kehadiran berhasil diupdate!")
+      }
     }
   }
 
   useEffect(() => {
-    console.log(visitor)
-    if (visitor?.presence) {
-      setPresence(visitor.presence)
+    if (visitor) {
+      if (visitor.name) setName(visitor.name)
+      if (visitor.presence) setPresence(visitor.presence)
     }
   }, [visitor])
 
@@ -63,10 +89,11 @@ export default function Section4() {
                 </p>
                 <input
                   type="text"
-                  value={visitor?.name || ""}
+                  value={name}
+                  onChange={e => setName(e.target.value)}
+                  disabled={!visitor}
                   placeholder="Tulis Nama Anda"
                   className="w-full rounded-md border border-black/20 bg-[#a76226]/10 p-3 text-sm text-black outline-none"
-                  disabled
                 />
               </div>
 

@@ -81,12 +81,12 @@ export default function Page() {
   const currentRows = visitors.slice(indexOfFirstRow, indexOfLastRow)
   const totalPages = Math.ceil(visitors.length / rowsPerPage)
 
-  const generateInvitationLink = (name: string) => {
-    if (!name) return ""
+  const generateInvitationLink = (name: string, position: string) => {
+    const identifier = name || position || "tamu-kehormatan"
 
     const mainLink = `${window.location.origin}/undangan`
 
-    const formattedName = name
+    const formattedName = identifier
       .toLowerCase()
       .replace(/[^a-z0-9]+/g, "-")
       .replace(/(^-|-$)/g, "")
@@ -94,8 +94,11 @@ export default function Page() {
     return `${mainLink}/${formattedName}`
   }
 
-  const handleWhatsAppShare = (visitor: { name: string }) => {
-    const invitationLink = generateInvitationLink(visitor.name)
+  const handleWhatsAppShare = (visitor: { name: string; position: string }) => {
+    const invitationLink = generateInvitationLink(
+      visitor.name,
+      visitor.position
+    )
 
     const formattedMessage = text
       .replace("[nama]", visitor.name)
@@ -107,8 +110,8 @@ export default function Page() {
     window.open(whatsappUrl, "_blank")
   }
 
-  const handleCopyLink = (name: string) => {
-    const invitationLink = generateInvitationLink(name)
+  const handleCopyLink = (name: string, position: string) => {
+    const invitationLink = generateInvitationLink(name, position)
 
     navigator.clipboard
       .writeText(invitationLink)
@@ -116,16 +119,16 @@ export default function Page() {
       .catch(() => toast.error("Gagal menyalin link."))
   }
 
-  const generateMessage = (name: string) => {
-    const invitationLink = generateInvitationLink(name)
+  const generateMessage = (name: string, position: string) => {
+    const invitationLink = generateInvitationLink(name, position)
     return text
       .replace(/\[nama\]/g, name)
       .replace(/\[link-undangan\]/g, invitationLink)
   }
 
-  const copyToClipboard = (name: string) => {
+  const copyToClipboard = (name: string, position: string) => {
     navigator.clipboard
-      .writeText(generateMessage(name))
+      .writeText(generateMessage(name, position))
       .then(() => toast.success("Kata pengantar berhasil disalin!"))
       .catch(() => toast.error("Gagal menyalin kata pengantar."))
   }
@@ -311,7 +314,9 @@ export default function Page() {
                         </button>
 
                         <button
-                          onClick={() => handleCopyLink(visitor.name)}
+                          onClick={() =>
+                            handleCopyLink(visitor.name, visitor.position)
+                          }
                           className="btn btn-sm col-span-1 flex items-center rounded-4xl bg-slate-900 text-white lg:rounded-[5px]"
                         >
                           <Image
@@ -324,7 +329,9 @@ export default function Page() {
                         </button>
 
                         <button
-                          onClick={() => copyToClipboard(visitor.name)}
+                          onClick={() =>
+                            copyToClipboard(visitor.name, visitor.position)
+                          }
                           className="btn btn-sm col-span-1 flex items-center rounded-4xl bg-gray-500 text-white lg:rounded-[5px]"
                         >
                           <Image

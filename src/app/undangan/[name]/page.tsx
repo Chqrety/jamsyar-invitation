@@ -24,15 +24,31 @@ const Page = () => {
 
       setLoading(true)
 
-      const searchPattern = `%${params.name.split("-").join("%")}%`
+      const searchPattern = params.name.split("-").join("%")
 
-      const { data, error } = await supabase
+      let { data, error } = await supabase
         .from("visitors_jsr")
         .select("id, name, position, presence")
-        .ilike("name", searchPattern)
+        .ilike("name", `%${searchPattern}%`)
+        .limit(1)
         .maybeSingle()
 
+      if (!data) {
+        console.log("Nama tidak ditemukan, beralih mencari Posisi...")
+
+        const { data: fallbackData, error: fallbackError } = await supabase
+          .from("visitors_jsr")
+          .select("id, name, position, presence")
+          .ilike("position", `%${searchPattern}%`)
+          .limit(1)
+          .maybeSingle()
+
+        data = fallbackData
+        error = fallbackError
+      }
+
       if (error) console.error("Error fetching visitor:", error)
+
       setVisitor(data)
       setLoading(false)
     }
